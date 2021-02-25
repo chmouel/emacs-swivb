@@ -1,7 +1,8 @@
 # swivb - Switch to buffer like ivy
 
-This package extract the `ivy-virtual-buffer` feature to its own, and add an
-optional function mode, where you can switch to a buffer or launch a function.
+This package extract the `ivy-virtual-buffer` feature to its own so you don't depend on the whole ivy for completion
+and add an optional function mode, where you can  advanced switching coniguration to switch to a buffer 
+or launch a function.
 
 Simply launch the interactive function swivb and it will show you the current
 buffer, the recent list files from `recentf` and the `bookmarks`.
