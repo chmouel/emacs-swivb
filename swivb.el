@@ -113,6 +113,7 @@ possible match.  See `all-completions' for further information."
 	  (if func (funcall (intern func))
 		(switch-to-buffer buffer)))))
 
+;;;###autoload
 (defun swivb (&optional find-file-func switch-buffer-func)
   (interactive)
   (let* ((swivb-virtual-abbreviate 'abbreviate)
