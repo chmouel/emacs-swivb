@@ -3,7 +3,7 @@
 ;; Copyright (C) 2021  Free Software Foundation, Inc.
 
 ;; Author: Chmouel Boudjnah <chmouel@chmouel.com>
-;; URL: https://github.com/chmouel/swivb
+;; URL: https://github.com/chmouel/emacs-swivb
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "27.0"))
 ;; Keywords: matching
