@@ -10,7 +10,7 @@ You can configure the variable `swivb-actions` to have special actions, for
 example :
 
 ```lisp
-(setq swivb-actions '((:name "*Gnus*" :function gnus :buffer "*Group*")))
+(setq swivb-actions '((:name "*Gnus*" :function "gnus" :buffer "*Group*")))
 ```
 
 It will add an item called `*Gnus*` and launch the function `gnus` if you choose

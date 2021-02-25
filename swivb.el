@@ -27,7 +27,9 @@
 
 ;;; This package extract the ivy-virtual-buffer feature to its own, and add a
 ;;; function mode, where you can switch to a buffer or launch a function i.e:
-;;; (setq swivb-actions '((:name "*Gnus*" :function gnus :buffer "*Group*")))
+;;;
+;;; (setq swivb-actions '((:name "*Gnus*" :function "gnus" :buffer "*Group*")))
+;;;
 ;;; Will launch the function gnus if you choose the *Gnus* in selection, if the
 ;;; buffer Group doesn't exist. By default it does a switch-to-bufer, you can
 ;;; override this with somethign like this :
