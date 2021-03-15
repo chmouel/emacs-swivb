@@ -119,7 +119,6 @@ possible match.  See `all-completions' for further information."
 (defun swivb (&optional find-file-func switch-buffer-func)
   (interactive)
   (let* ((swivb-virtual-abbreviate 'abbreviate)
-		 (swivb-use-virtual-buffers t)
 		 (selection
 	      (completing-read
 	       "☕ Switch to: " (swivb--buffer-list "" t) nil t)))
