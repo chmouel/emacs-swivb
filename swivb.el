@@ -100,8 +100,6 @@ possible match.  See `all-completions' for further information."
 	 (lambda (elt)
 	   (plist-get elt :name)) swivb-actions)	
     (all-completions str #'internal-complete-buffer predicate)
-    (if (fboundp 'projectile-relevant-known-projects)
-        (projectile-relevant-known-projects))
     (and virtual
          (swivb--virtual-buffers)))))
 
@@ -127,6 +125,9 @@ possible match.  See `all-completions' for further information."
     (if (zerop (length selection))
 		(switch-to-buffer swivb-text)
 	  (let ((virtual (assoc selection swivb--virtual-buffers))
+            (project
+             (if (fboundp 'projectile-relevant-known-projects)
+                 (assoc selection (projectile-relevant-known-projects))))
 			funcelt)
 		(dolist (helt swivb-actions)
 		  (if (string= (plist-get helt :name) selection)
