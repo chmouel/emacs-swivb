@@ -39,11 +39,18 @@
 ;;; The swivb-switch-to-buffer-or-focus-tab function will focus a tab if the
 ;;; buffer name exist or switch-to-bufer it.
 
-(defvar swivb-user-virtual-buffers nil)
 (defvar swivb-use-virtual-buffers t)
 (defvar swivb-virtual-abbreviate t)
 (defvar swivb--virtual-buffers nil)
 (defvar swivb-actions nil)
+
+(defface swivb-virtual-buffers-face
+  '((t :inherit font-lock-comment-face))
+  "Face used by Swivbf for highlighting the virtual buffers.")
+
+(defface swivb-actions-face
+  '((t :inherit font-lock-function-name-face))
+  "Face used by Swivbf for highlighting actions.")
 
 (defun swivb--virtual-buffers ()
   "Adapted from `ido-add-virtual-buffers-to-list'."
@@ -84,7 +91,7 @@
     (when virtual-buffers
 	  (dolist (comp virtual-buffers)
         (put-text-property 0 (length (car comp))
-						   'face 'swivb-virtual
+						   'face 'swivb-virtual-buffers-face
 						   (car comp)))
 	  (setq swivb--virtual-buffers (nreverse virtual-buffers))
 	  (mapcar #'car swivb--virtual-buffers))))
@@ -98,7 +105,10 @@ possible match.  See `all-completions' for further information."
    (nconc
 	(mapcar
 	 (lambda (elt)
-	   (plist-get elt :name)) swivb-actions)	
+       (put-text-property
+        0 (length (plist-get elt :name))
+		'face 'swivb-virtual-buffers-face (plist-get elt :name))
+	   (plist-get elt :name)) swivb-actions)
     (all-completions str #'internal-complete-buffer predicate)
     (and virtual
          (swivb--virtual-buffers)))))
